@@ -101,7 +101,7 @@ class CFX_Theme_Settings extends Calibrefx_Admin {
 					'content_archive',
 					'layout_type',
 					'site_layout',
-					'feature_image_layout', 
+					'feature_image_layout',
 				)
 		);
 
@@ -125,7 +125,7 @@ class CFX_Theme_Settings extends Calibrefx_Admin {
 			return;
 		}
 
-		if ( ! empty( $_POST['calibrefx_do_export'] ) ) { 
+		if ( ! empty( $_POST['calibrefx_do_export'] ) ) {
 			$this->do_export();
 		} elseif ( ! empty( $_POST['calibrefx_do_import'] ) ) {
 			$this->do_import();
@@ -148,7 +148,6 @@ class CFX_Theme_Settings extends Calibrefx_Admin {
 		calibrefx_add_meta_section( 'system', __( 'System Information', 'calibrefx' ), $calibrefx_target_form, 60, 'fa fa-cogs' );
 		if( current_user_can( 'edit_theme_options' ) ){
 			calibrefx_add_meta_section( 'modules', __( 'Available Modules', 'calibrefx' ), '', 50 );
-			calibrefx_add_meta_section( 'tosgen', __( 'Legal Generator', 'calibrefx' ), '', 70, 'fa fa-rocket' );
 			calibrefx_add_meta_section( 'importexport', __( 'Import / Export Settings', 'calibrefx' ), '', 80, 'fa fa-share-square-o' );
 		}
 
@@ -175,7 +174,6 @@ class CFX_Theme_Settings extends Calibrefx_Admin {
 		calibrefx_add_meta_box( 'system', 'basic', 'calibrefx-about-version', __( 'Information', 'calibrefx' ), array( $this, 'info_box' ), $this->pagehook, 'main', 'high' );
 		if( current_user_can( 'edit_theme_options' ) ){
 			calibrefx_add_meta_box( 'modules', 'basic', 'calibrefx-render-page', __( 'Modules Available', 'calibrefx' ), array( $this, 'render_page' ), $this->pagehook, 'main', 'high' );
-			calibrefx_add_meta_box( 'tosgen', 'basic', 'calibrefx-other-settings-tosgen', __( 'Legal Generator', 'calibrefx' ), array( $this, 'tos_generator' ), $this->pagehook, 'main', 'high' );
 			calibrefx_add_meta_box( 'importexport', 'basic', 'calibrefx-import-settings', __( 'Import Settings', 'calibrefx' ), array( $this, 'import_settings' ), $this->pagehook, 'main', 'high' );
 			calibrefx_add_meta_box( 'importexport', 'basic', 'calibrefx-export-settings', __( 'Export Settings', 'calibrefx' ), array( $this, 'export_settings' ), $this->pagehook, 'main', 'high' );
 		}
@@ -1108,7 +1106,7 @@ class CFX_Theme_Settings extends Calibrefx_Admin {
 	public function info_box() { ?>
         <p>
             <span class="description">
-            Below is the CalibreFx Framework Informations. All the codes and informations is copyrighted by <a href="http://www.calibreworks.com" target="_blank">Calibreworks</a>. 
+            Below is the CalibreFx Framework Informations. All the codes and informations is copyrighted by <a href="http://www.calibreworks.com" target="_blank">Calibreworks</a>.
             CalibreFx is released under the GPL v2. For license information please refer to the license.txt in themes folder.
             </span>
         </p>
@@ -1125,165 +1123,6 @@ class CFX_Theme_Settings extends Calibrefx_Admin {
             <p><strong><?php _e( 'Themes Author URL:', 'calibrefx' ); ?></strong> <?php echo CHILD_THEME_URL; ?> </p>
         <?php
 		}
-	}
-
-	public function tos_generator() {
-		$name = '';
-		$url = '';
-		$info = '';
-
-		$asp = '';
-		$cn = '';
-		$disclaimer = '';
-		$dmca = '';
-		$federal = '';
-		$privacy = '';
-		$social = '';
-		$terms = '';
-
-		if ( isset( $_POST['name']) && isset( $_POST['url']) ) {
-
-			$name = $_POST['name'];
-			$url = $_POST['url'];
-			$info = $_POST['info'];
-
-			$response = wp_remote_post( 'http://www.calibreworks.com/tosgen/api.php', array(
-				'method' => 'POST',
-				'timeout' => 60,
-				'redirection' => 5,
-				'httpversion' => '1.0',
-				'blocking' => true,
-				'headers' => array(),
-				'body' => array(
-				'company_name' => $_POST['name'],
-				'company_url' => $_POST['url'],
-				'company_info' => $_POST['info'],
-				),
-				'cookies' => array(),
-				)
-			);
-
-			$json = json_decode( $response['body'] );
-
-			$asp = $json->data->asp;
-			$cn = $json->data->cn;
-			$disclaimer = $json->data->disclaimer;
-			$dmca = $json->data->dmca;
-			$federal = $json->data->federal;
-			$privacy = $json->data->privacy;
-			$social = $json->data->social;
-			$terms = $json->data->terms;
-
-		}
-	?>
-        <h3 class="section-title">Your Company Information</h3>
-        <div class="option-item">
-			<p class="calibrefx_legal_generator" style="">
-				<label for="name">Company Name</label>
-				<input type="text" id="name" name="name" value="<?php echo $name;?>" class="form-control calibrefx_legal_generator" style="">
-			</p>
-			<p class="description">
-				Type your company name
-			</p>
-        </div>
-        <div class="option-item">
-			<p class="calibrefx_legal_generator" style="">
-				<label for="url">Company Website URL</label>
-				<input type="text" id="url" name="url" value="<?php echo $url;?>" class="form-control calibrefx_legal_generator" style="">
-			</p>
-			<p class="description">
-				Type your company website url
-			</p>
-        </div>
-        <div class="option-item">
-			<p>
-				<label for="info">Company Complete Address</label>
-				<textarea id="info" name="info" class="form-control "><?php echo $info;?></textarea>
-			</p>
-			<p class="description">
-				Type your company address
-			</p>
-        </div>
-
-        <div class="calibrefx-legal-button">
-            <div class="clear"></div>
-            <button type="submit" class="calibrefx-h2-button calibrefx-settings-submit-button"><i class="fa fa-legal fa-2"></i> Generate Legal Content</button>
-        </div>
-        <p class="description">Note: by pressing this button won't save anything in your content nor your settings. It's just to generate the content below.</p>
-
-        <hr class="div" />
-
-        <h3 class="section-title">Legal Page Content</h3>
-        <p class="description">
-        	Please copy and paste the content according to your need. Or use the generate button after each section to create the page automatically
-        </p>
-        
-        <div class="option-item">
-			<p>
-				<label for="privacy">Privacy Policy</label>
-				<textarea id="privacy" name="privacy" class="form-control "><?php echo $privacy;?></textarea>
-			</p>
-			<p class="description">Please press the button to create the page <button class="button button-secondary button-large button-ajax" data-action="create-legal-page" data-param="privacy" data-nonce="<?php echo wp_create_nonce( 'cfx_create-legal-page_privacy' ); ?>">Create Privacy Policy Page</button> </p>
-        </div>
-
-        <div class="option-item">
-			<p>
-				<label for="terms">Terms Of Service &amp; Conditions Of Use</label>
-				<textarea id="terms" name="terms" class="form-control "><?php echo $terms;?></textarea>
-			</p>
-			<p class="description">Please press the button to create the page <button class="button button-secondary button-large button-ajax" data-action="create-legal-page" data-param="tos" data-nonce="<?php echo wp_create_nonce( 'cfx_create-legal-page_tos' ); ?>">Create TOS Page</button> </p>
-        </div>
-
-        <div class="option-item">
-			<p>
-				<label for="asp">Anti-Spam Policy</label>
-				<textarea id="asp" name="asp" class="form-control "><?php echo $asp;?></textarea>
-			</p>
-			<p class="description">Please press the button to create the page <button class="button button-secondary button-large button-ajax" data-action="create-legal-page" data-param="asp" data-nonce="<?php echo wp_create_nonce( 'cfx_create-legal-page_asp' ); ?>">Create Anti Spam Policy Page</button> </p>
-        </div>
-		
-		<div class="option-item">
-			<p>
-				<label for="cn">Copyright Notice</label>
-				<textarea id="cn" name="cn" class="form-control "><?php echo $cn;?></textarea>
-			</p>
-			<p class="description">Please press the button to create the page <button class="button button-secondary button-large button-ajax" data-action="create-legal-page" data-param="cn" data-nonce="<?php echo wp_create_nonce( 'cfx_create-legal-page_cn' ); ?>">Copyright Notice Page</button> </p>
-        </div>
-		
-		<div class="option-item">
-			<p>
-				<label for="disclaimer">Disclaimer</label>
-				<textarea id="disclaimer" name="disclaimer" class="form-control "><?php echo $disclaimer;?></textarea>
-			</p>
-			<p class="description">Please press the button to create the page <button class="button button-secondary button-large button-ajax" data-action="create-legal-page" data-param="disclaimer" data-nonce="<?php echo wp_create_nonce( 'cfx_create-legal-page_disclaimer' ); ?>">Create Disclaimer Page</button> </p>
-        </div>
-       	
-       	<div class="option-item">
-			<p>
-				<label for="dmca">DMCA Compliance</label>
-				<textarea id="dmca" name="dmca" class="form-control "><?php echo $dmca;?></textarea>
-			</p>
-			<p class="description">Please press the button to create the page <button class="button button-secondary button-large button-ajax" data-action="create-legal-page" data-param="dmca" data-nonce="<?php echo wp_create_nonce( 'cfx_create-legal-page_dmca' ); ?>">Create DMCA Page</button> </p>
-        </div>
-
-        <div class="option-item">
-			<p>
-				<label for="federal">Federal Trade Commission Compliance</label>
-				<textarea id="federal" name="federal" class="form-control "><?php echo $federal;?></textarea>
-			</p>
-			<p class="description">Please press the button to create the page <button class="button button-secondary button-large button-ajax" data-action="create-legal-page" data-param="federal" data-nonce="<?php echo wp_create_nonce( 'cfx_create-legal-page_federal' ); ?>">Create Federal Compliance Page</button> </p>
-        </div>
-        
-        <div class="option-item">
-			<p>
-				<label for="social">Social Media Disclosure</label>
-				<textarea id="social" name="social" class="form-control "><?php echo $social;?></textarea>
-			</p>
-			<p class="description">Please press the button to create the page <button class="button button-secondary button-large button-ajax" data-action="create-legal-page" data-param="social" data-nonce="<?php echo wp_create_nonce( 'cfx_create-legal-page_social' ); ?>">Create Social Media Disclosure Page</button> </p>
-        </div>
-        
-        <script type="text/javascript">tos_bind_events();</script>
-    <?php
 	}
 
 	public function import_settings() {
@@ -1307,7 +1146,7 @@ class CFX_Theme_Settings extends Calibrefx_Admin {
         <p>
             <input type="submit" name="calibrefx_do_export" class="button-primary calibrefx-h2-button" value="<?php _e( 'Export Settings', 'calibrefx' ) ?>" />
         </p>
-        
+
     <?php
 	}
 
@@ -1326,7 +1165,7 @@ class CFX_Theme_Settings extends Calibrefx_Admin {
 	}
 
 	public function do_export() {
-		
+
 		$options = $this->get_export_options();
 
 		$settings = array();
@@ -1341,7 +1180,7 @@ class CFX_Theme_Settings extends Calibrefx_Admin {
 
 		/** Check there's something to export */
 		if ( empty( $settings ) ) {
-			return; 
+			return;
 		}
 
 		$output = json_encode( (array) $settings );
