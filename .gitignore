@@ -1,0 +1,16 @@
+.DS_Store
+*.sublime-*
+bin/.lastup
+
+config/**/prod*
+config/docker/compose/dev.local.yml
+config/docker/env/backend/dev.local
+
+data/db/
+data/content/perms.txt
+data/content/upgrade/*
+data/content/uploads/*
+!data/content/uploads/index.php
+
+data/htdocs/*
+!data/htdocs/index.php

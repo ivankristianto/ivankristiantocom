@@ -1,0 +1,35 @@
+version: '2'
+
+services:
+  db:
+    image: kucrut/mariadb
+    container_name: ivankristianto-db
+    restart: always
+    networks:
+      - default
+    volumes:
+      - "./data/db:/var/lib/mysql"
+      - "./config/mysql:/etc/mysql/conf.d"
+
+  backend:
+    image: kucrut/wordpress
+    container_name: ivankristianto-backend
+    restart: always
+    depends_on:
+      - db
+    links:
+      - db
+    networks:
+      - default
+      - proxy-tier
+    volumes:
+      - "./data/content:/var/www/wp-content"
+      - "./data/content/uploads:/var/www/wordpress/uploads"
+      - "./data/htdocs/downloads:/var/www/wordpress/downloads"
+      - "./data/htdocs/examples:/var/www/wordpress/examples"
+      - "./data/config:/var/www/wp-configs"
+
+networks:
+  proxy-tier:
+    external:
+      name: proxy
