@@ -1,64 +1,132 @@
-=== ThirstyAffiliates ===
+=== ThirstyAffiliates Affiliate Link Manager ===
 Contributors: jkohlbach, RymeraWebCo
 Donate link:
-Tags: thirstyaffiliates, thirsty affiliates, affiliate marketing, affiliate link management, link cloaking, affiliate links, affiliate link, affiliate link manager, manage affiliate links, affiliate link redirect, link cloak, link cloaker, link redirect
+Tags: affiliate, link, affiliate link management, link cloaker, link redirect, shortlink, thirstyaffiliates, thirsty affiliates
 Requires at least: 3.4
-Tested up to: 4.7.0
-Stable tag: trunk
+Requires PHP: 5.6
+Tested up to: 4.8.2
+Stable tag: 3.1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Earn more with affiliate marketing using ThirstyAffiliates – the professional affiliate link management & link cloaking tool for affiliates.
+Affiliate link management & cloaker tool. Easily manage, shrink and track your affiliate links in WordPress.
 
 == Description ==
 
-Website: http://thirstyaffiliates.com
-PRO Add-ons: http://thirstyaffiliates.com/add-ons
+***VISIT OUR WEBSITE***
 
-ThirstyAffiliates empowers website owners with the tools they need to monetize their WordPress website with affiliate marketing.
+Click here: [ThirstyAffiliates](https://thirstyaffiliates.com/?utm_source=WordPressorg&utm_medium=Free%20Plugin%20Listing&utm_content=Home)
+Check out the [PRO Version](https://thirstyaffiliates.com/pricing/?utm_source=WordPressorg&utm_medium=Free%20Plugin%20Listing&utm_content=PRO)!
 
-It lets you administer your affiliate links, assists you with inserting them into your posts, pages and comments and gives you a central location in WordPress to manage all of your affiliate links.
+***THIRSTYAFFILIATES FREE VERSION***
 
-ThirstyAffiliates will create pretty links from ugly affiliate links (aka link redirection or link cloaking) all the while giving you the double benefit of protecting your commissions from theft.
+***ThirstyAffiliates*** gives bloggers the tools they need to monetize their WordPress website with affiliate marketing.
+
+We’ve made managing your affiliate links as simple as it should be:
+
+1. Install & activate the ThirstyAffiliates plugin
+1. Goto Affiliate Links->Add New
+1. Enter the destination URL (your affiliate link) and a title
+1. The plugin creates a new shortlink/link redirect to your long ugly affiliate link by making a pretty link with your own website URL
+1. You can then use the new “TA” button your editor to add your affiliate link to your content easily
+
+eg. http://example.com/recommends/some-product
+
+Some features at a glance:
+
+**SIMPLE**
+
+No complex setups. It’s just another post type in your admin and another button on your Visual editor.
+
+When you are writing blog posts, you can highlight a word and click the “TA” button. This works just like the built in link tool, you can search for the affiliate link you created earlier by name.
+
+You can even use the Quick Add button to add affiliate links to ThirstyAffiliates on the fly while you are writing.
+
+**BETTER LINK MANAGEMENT**
+
+You can group your affiliate links into hierarchical categories. eg. placing all Amazon links within an “Amazon” category, or all software links in a “Software” category.
+
+Managing your links in ThirstyAffiliates means there is only one place to change the destination URL if required rather than having to go back and replace the link in potentially hundreds of articles.
+
+**SAFE REDIRECTS & SMART UNCLOAKING**
+
+You can choose from 301 (default), 302 or 307 redirects, all of which are safe link redirects.
+
+Link redirects protect your affiliate links from being scraped and replaced by malware in your visitor’s browser.
+
+There is also a smart uncloaking feature so if the affiliate program you are using (such as Amazon Associates) does not like your links behind a redirect, you can still use ThirstyAffiliates. Your links can be conditionally uncloaked on the front end.
+
+**NO LINK CLASHES OR DATABASE BLOAT**
+
+Uses proper custom post types to avoid link clashes that can occur with other solutions.
+
+Keeps it’s database footprint small to ensure you don’t over bloat your database with useless information.
+
+**ADD IMAGES TO AFFILIATE LINKS**
+
+You can even add images and banners to your affiliate links and recall them for easy insertion when writing your content.
+
+Simply click the new “TA” affiliate link button on your editor, click the cog to open the Advanced Link Picker and search & choose the image you want to insert and it will be inserted pre-wrapped in your affiliate link.
+
+**CLICK STATISTICS & REPORTS**
+
+Adds click tracking to your links to track every click.
+
+Comes with built-in reports so you can explore, over-time, how much your affiliate links have been clicked and what is popular on your site.
 
 = Features at a glance =
 
-* Inbuilt affiliate link shortening/link cloaking (yourwebsite.com/recommends/your-affiliate-link)
-* Commission protecting affiliate link 301 redirection
-* Customizable link URL prefixes – loads to choose from or use your own custom prefix
+* Inbuilt affiliate link shorter/link cloaker (creates pretty links like: http://example.com/recommends/your-affiliate-link)
+* Commission protecting affiliate link redirection options (301, 302 & 307)
+* Click stats tracking & reports
 * Hierarchical link categorization to easily segment links
-* Handy affiliate link picker tool (with full instant search capabilities) makes it easy to insert affiliate links in posts, pages and comments!
+* Affiliate link picker tool which works just like the WordPress link tool
+* Advanced link picker tool (hit the cog icon after clicking the “TA” button on your editor) for more advanced options
+* Insert standard links, shortcodes or even images! (with full instant search capabilities) 
+* Makes it easy to insert affiliate links in posts, pages and even comments. ThirstyAffiliates is there everywhere there is a standard WordPress editor
 * Handy quick add tool lets you easily create new affiliate links without even leaving the post edit screen
-* Show category slugs in link URLs
-* DoFollow/NoFollow options (global or per link)
-* Open in new window options (global or per link)
+* Customizable link URL prefixes – change “recommends” to something else, loads of pre-done link prefixes to choose from or use your own custom prefix!
+* Choose to show category slugs in link URLs
+* No Follow option (global or per link)
+* Open in new tab (global or per link)
 * Full importing and exporting support via standard WordPress tools
 * Full backup compatibility via standard WordPress backup solutions
-* Uses WordPress approved storage techniques – doesn't bloat your database with extra tables!
-* Using the link picker insert affiliate links as standard links, shortcodes (great for adding classes for link styling), or pre-linked images.
+* Uses WordPress approved storage techniques – doesn't bloat your database
 * Add your graphics, banners and other images to affiliate links for easy insertion
+* In-built proactive link fixer which detects outdated affiliate links in your content and fixes them automatically
+* Completely modularized so you can turn on only the parts of ThirstyAffiliates that you need
 
-= Want more PRO features? =
+= PRO Features =
 
-Some of our popular add-ons include:
+We have a PRO add-on for ThirstyAffiliates that bolts on extra functionality that might be interesting to advanced affiliate marketers and bloggers looking to automate parts of their affiliate marketing.
 
-* Autolinker - get massive increase in your affiliate income by automatically linking affiliate links to keywords throughout your site
-* Stats - the insight you need to find out what links are popular on your site
-* Google Click Tracking - adds the special Google Analytics Click Event code on your affiliate links as you insert them
-* CSV Importer - import your links from other packages in simple CSV format
-* Geolocations - geo target your visitors and redirect them to geographically appropriate alternative affiliate URLs, a great way to level up your income
-* Scheduled Links - create special schedules for your affiliate links to automatically change the destination URL, great for sales running during a specific time period
+Some of our popular PRO features include:
 
-[Check out all the ThirstyAffiliates Add-ons](http://thirstyaffiliates.com/add-ons)
+* Automatic Keyword Linking - boost your affiliate income by automatically linking affiliate links to keywords throughout your site, great for monetising your back catalog of content!
+* Advanced Statistics Reports - amazing advanced reports such as performance by category, performance over 24/hr periods (to identify peak click times), Geolocation reports (where people click from) and more!
+* Geolocations - geo target your visitors based on their country of origin and redirect them to geographically appropriate affiliate URLs
+* Google Click Events - pushes a click event to your Google Analytics on click
+* CSV Import/Export - import and export affiliate links via CSV. Great for managing links across multiple sites
+* Amazon API Importing - Search and import affiliate links from Amazon’s Product Advertising API
+* High speed HTAccess redirect - Loads affiliate link redirects into your htaccess file for faster redirecting, meaning WordPress & even PHP isn’t loaded
+* Link Event Notification Emails - get notified about significant events with your affiliate links like when they reach a certain amount of clicks total or a certain amount of clicks in a period of time
+* Automatic Link Health Checker - automatically explores your affiliate links for 404’s or broken links and will notify you when it detects problems
+
+[Check out all the ThirstyAffiliates PRO features here](https://thirstyaffiliates.com/pricing/?utm_source=WordPressorg&utm_medium=Free%20Plugin%20Listing&utm_content=PRO)
 
 == Installation ==
 
 1. Upload the `thirstyaffiliates/` folder to the `/wp-content/plugins/` directory
-1. Activate the plugin through the 'Plugins' menu in WordPress
-1. Visit the new 'ThirstyAffiliates' menu and click 'Add New' to add an affiliate link.
-1. Visit [http://thirstyaffiliates.com/](http://thirstyaffiliates.com/) for more information, add-ons and support.
+1. Activate the plugin through the “Plugins” menu in WordPress
+1. Visit the new “ThirstyAffiliates” menu and click 'Add New' to add an affiliate link.
+1. Use the new “TA” button on the Visual editor to link up an affiliate link when writing content.
+1. Visit [http://thirstyaffiliates.com/](https://thirstyaffiliates.com/?utm_source=WordPressorg&utm_medium=Free%20Plugin%20Listing&utm_content=Home) for more information, info about the PRO version and support.
 
 == Frequently asked questions ==
+
+Here are some common questions/problems.
+
+For more resources please see our [Knowledge Base](https://thirstyaffiliates.com/knowledge-base/?utm_source=WordPressorg&utm_medium=Free%20Plugin%20Listing&utm_content=KB).
 
 = Help, my links aren't redirecting! It just brings up a 404 error. =
 
@@ -72,30 +140,10 @@ To resolve the problem follow these steps:
 1. Go back to ThirstyAffiliates->All Affiliate Links and view one of the links, it should be redirecting properly.
 
 = Are there any known conflicts? =
+
 WordPress supports a very vibrant ecosystem of themes and plugins so from time to time it's expected that there will be some minor conflicts with other products.
 
-Here is a list of known conflicts and their workarounds (if one exists):
-
-**Bulletproof Security plugin - conflict with ThirstyAffiliates link picker not showing.**
-
-Fix: add this to your .htaccess file in your WP root directory
-`# Thirstyaffiliates skip/bypass rule
-RewriteCond %{REQUEST_URI} ^/wp-content/plugins/thirstyaffiliates/ [NC]
-RewriteRule . - [S=13]`
-
-**WooThemes – minor conflict with image uploader being taken over by the theme. Happens with Canvas and some other WooThemes themes.**
-
-Fix: add this to your functions.php in your theme:
-`add_action( 'admin_enqueue_scripts', 'ta_remove_wf_media_assets' );
-
-function ta_remove_wf_media_assets ( $hook ) {
-	if ( 'post.php' == $hook && 'thirstylink' == get_post_type() ) {
-		remove_action( 'admin_print_styles', 'woothemes_mlu_css', 0 );
-		remove_action( 'admin_print_scripts', 'woothemes_mlu_js', 0 );
-	}
-} // End ta_remove_wf_media_assets()`
-
-Thanks to Matty of WooThemes for the workaround.
+See our [Knowledge Base](https://thirstyaffiliates.com/knowledge-base/?utm_source=WordPressorg&utm_medium=Free%20Plugin%20Listing&utm_content=KB) for an up to date list of known conflicts.
 
 == Screenshots ==
 
@@ -103,13 +151,83 @@ Thanks to Matty of WooThemes for the workaround.
 
 2. Edit screen for a single affiliate link
 
-3. The affiliate link picker dialog, shows up when you press the green 'aff' icon on any editor box
+3. The affiliate link picker dialog, shows up when you press the “TA” icon on any editor box
 
-4. Insertion options for affiliate link in the affiliate link picker
+4. Advances link picker options, shows up when you press the cog icon on the affiliate link picker tool
 
 5. Settings page
 
 == Changelog ==
+
+= 3.1.3 =
+* Improvement: Add a small "Edit" link on read only fields on the List view
+* Bug Fix: When migrated, geolocation URLs still have the &amp ;. It needs to be changed to &
+
+= 3.1.2 =
+* Bug Fix: Fix link fixer script to detect links with either http or https protocol
+* Bug Fix: If all modules requiring ta.js are off dequeue it
+* Bug Fix: isThirstyLink should recognize root relative URLs and others
+* Bug Fix: Thirstylink CPT publish status is translatable
+
+= 3.1.1 =
+* Bug Fix: Change reports content display method to use callback function instead
+* Bug Fix: Update migration for new tracking script option for GCT module
+
+= 3.1.0 =
+* Feature: Add REST API support
+* Feature: Automatically add link prefix in the robots.txt to prevent indexing
+* Feature: Exclude known search engine bots from stats
+* Feature: Trim stats table on a regular cron 
+* Improvement: Make sure the insert buttons in link picker popup stay in place
+* Improvement: Readd the social links on the settings Help tab
+* Improvement: Improve the save click data function
+* Bug Fix: Link picker popup starts searching with only 1 character
+* Bug Fix: Uncloaker should not HTML encode & ampersand characters
+* Bug Fix: Authors and Editors cannot see the ThirstyAffiliates link picker button
+* Bug Fix: Htaccess module removes the wrong .htaccess section
+* Bug Fix: Various error messages for different user roles
+
+= 3.0.3 =
+* Bug Fix: Visual editor breaks on text widgets
+* Bug Fix: Conflict with Shortcoder plugin
+* Bug Fix: Tour keeps popping up
+
+= 3.0.2 =
+* Bug Fix: Link Fixer overrides existing CSS classes on the link
+* Bug Fix: Link Fixer removes any query strings from the cloaked link
+* Bug Fix: Properly handle special characters on the text in which the link is attached
+* Bug Fix: Disabling link CSS and title globally won't work with Link Fixer
+* Bug Fix: Fix typo on search placeholder on editor
+* Bug Fix: Conflict with OptimizePress theme
+
+= 3.0.1 =
+* Bug Fix: Link Fixer overrides existing CSS classes on the link
+* Bug Fix: Delete all stats data of a link when its permanently deleted
+* Bug Fix: Minor code fixes on data migration ( from V2 to V3 )
+* Bug Fix: Properly escape destination urls
+
+= 3.0.0 =
+
+***NOTE: 3.0.0 IS A MAJOR VERSION FULL REWRITE OF THE PLUGIN. WHILE WE HAVE DONE OUR BEST TO ENSURE A SMOOTH MIGRATION, WE HIGHLY RECOMMEND YOU TEST ON A STAGING AREA IF POSSIBLE.***
+
+* Migration Assistant: Migrates your affiliate links to the new 3.0.0 standard on update
+* Migration Assistant: You can also downgrade your affiliate links back to the old format if you downgrade back to version 2.
+* Feature: Rewrote the entire plugin for massive improvements
+* Feature: Implemented new data storage model
+* Feature: Introduced modularization so parts of ThirstyAffiliates can be turned on/off
+* Feature: New link picker that looks and works exactly like the standard link tool in WordPress
+* Feature: New advanced link picker (press the cog icon on the link picker) for advanced searching and insertion modes (like image insertion)
+* Feature: Choose your default link insertion mode (standard link or shortcode)
+* Feature: Reworked the affiliate link edit screen for clarity
+* Feature: Reworked the entire settings area for clarity
+* Feature: Added additional link information on list view
+* Feature: Introduced Link Fixer - a tool that automatically corrects old/outdated affiliate links on the front end
+* Feature: Introduced uncloaking - lets you smartly uncloak links individually or based on their category, great for compatibility with stricter affiliate program terms (such as Amazon Associates Terms of Service)
+* Feature: Introduced click tracking & basic reports
+* Feature: Introduced keyboard shortcut commands
+* Feature: Reworked the quick add button feature
+* Feature: Added a plugin tour on activation
+* ... plus many other small improvements, tweaks and bug fixes. We hope you love it!
 
 = 2.7.0 =
 * Feature: Wildcard replace segments of links based on query string parameters
