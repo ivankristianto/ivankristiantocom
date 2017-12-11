@@ -332,7 +332,7 @@ class FrmProEntryFormatter extends FrmEntryFormatter {
 	 * @param array $output
 	 */
 	protected function push_single_field_to_array( $field_value, &$output ) {
-		$field_key = $field_value->get_field_key();
+		$field_key = $this->get_key_or_id( $field_value );
 		$field_type = $field_value->get_field_type();
 
 		if ( $field_type == 'form' ) {
@@ -341,13 +341,16 @@ class FrmProEntryFormatter extends FrmEntryFormatter {
 			$this->push_field_values_to_array( $child_values, $output );
 
 		} else if ( $field_type == 'divider' && $field_value->has_child_entries() ) {
-			$output[ $field_key ] = array();
+			$output[ $field_key ] = array(
+				'form' => $field_value->get_field_option('form_select'),
+			);
 
 			$count = 0;
-			foreach ( $field_value->get_displayed_value() as $row_values ) {
-				$output[ $field_key ][ $count ] = array();
+			foreach ( $field_value->get_displayed_value() as $entry_id => $row_values ) {
+				$index = 'i' . $entry_id;
+				$output[ $field_key ][ $index ] = array();
+				$this->push_field_values_to_array( $row_values, $output[ $field_key ][ $index ] );
 
-				$this->push_field_values_to_array( $row_values, $output[ $field_key ][ $count ] );
 				$this->push_repeating_field_values_to_array( $row_values, $count, $output );
 
 				$count++;
@@ -374,21 +377,21 @@ class FrmProEntryFormatter extends FrmEntryFormatter {
 
 			if ( $this->include_repeating_field_in_array( $field_value ) ) {
 
-				if ( ! isset( $output[ $field_value->get_field_key() ] ) ) {
-					$output[ $field_value->get_field_key() ] = array();
+				if ( ! isset( $output[ $this->get_key_or_id( $field_value ) ] ) ) {
+					$output[ $this->get_key_or_id( $field_value ) ] = array();
 				}
 
 				$displayed_value = $this->prepare_display_value_for_array( $field_value->get_displayed_value() );
-				$output[ $field_value->get_field_key() ][ $index ] = $displayed_value;
+				$output[ $this->get_key_or_id( $field_value ) ][ $index ] = $displayed_value;
 
 				$saved_value = $field_value->get_saved_value();
 				if ( $displayed_value !== $saved_value ) {
 
-					if ( ! isset( $output[ $field_value->get_field_key() ] ) ) {
-						$output[ $field_value->get_field_key() . '-value' ] = array();
+					if ( ! isset( $output[ $this->get_key_or_id( $field_value ) ] ) ) {
+						$output[ $this->get_key_or_id( $field_value ) . '-value' ] = array();
 					}
 
-					$output[ $field_value->get_field_key() . '-value' ][ $index ] = $field_value->get_saved_value();
+					$output[ $this->get_key_or_id( $field_value ) . '-value' ][ $index ] = $field_value->get_saved_value();
 				}
 			}
 		}

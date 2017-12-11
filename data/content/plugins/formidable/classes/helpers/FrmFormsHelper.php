@@ -163,7 +163,7 @@ class FrmFormsHelper {
 
 		foreach ( array( 'name' => '', 'description' => '' ) as $var => $default ) {
 			if ( ! isset( $values[ $var ] ) ) {
-				$values[ $var ] = FrmAppHelper::get_param( $var, $default );
+				$values[ $var ] = FrmAppHelper::get_param( $var, $default, 'get', 'sanitize_text_field' );
             }
         }
 
@@ -171,7 +171,7 @@ class FrmFormsHelper {
 
 		foreach ( array( 'form_id' => '', 'logged_in' => '', 'editable' => '', 'default_template' => 0, 'is_template' => 0, 'status' => 'draft', 'parent_form_id' => 0 ) as $var => $default ) {
             if ( ! isset( $values[ $var ] ) ) {
-				$values[ $var ] = FrmAppHelper::get_param( $var, $default );
+				$values[ $var ] = FrmAppHelper::get_param( $var, $default, 'get', 'sanitize_text_field' );
             }
         }
 
@@ -619,7 +619,7 @@ BEFORE_HTML;
             ),
         );
 
-        $current_page = isset( $_REQUEST['form_type'] ) ? $_REQUEST['form_type'] : '';
+		$current_page = FrmAppHelper::get_simple_request( array( 'param' => 'form_type' ) );
 		$base_url = '?page=formidable&form_type=' . $current_page . '&id=' . $id;
         if ( 'trash' == $status ) {
 			$link = '<a href="' . esc_url( wp_nonce_url( $base_url . '&frm_action=untrash', 'untrash_form_' . $id ) ) . '" class="submitdelete deletion">' . $labels['restore'][ $length ] . '</a>';
